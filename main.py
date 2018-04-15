@@ -34,12 +34,16 @@ def handle_text(message):
     if message.text == "Расписание на сегодня":
         my_date = date.today()
         answer = calendar.day_name[my_date.weekday()]
+        if (answer=="Sunday"):
+            answer="Сегодня выходной"
         log(message,answer)
         bot.send_message(message.chat.id,answer, reply_markup=constants.user_markup_start)
 
     elif message.text == "Расписание на завтра":
         my_date = date.today()
         answer = calendar.day_name[(my_date.weekday()+1)%7]
+        if (answer=="Sunday"):
+            answer="Завтра выходной"
         bot.send_message(message.chat.id,answer, reply_markup=constants.user_markup_start)
         log(message,answer)
 

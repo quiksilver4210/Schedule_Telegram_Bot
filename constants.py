@@ -9,6 +9,6 @@ user_markup_start.row('Расписание звонков')
 
 user_markup_days = telebot.types.ReplyKeyboardMarkup()
 user_markup_days.row('Понедельник', 'Четверг')
-user_markup_days.row('Втоник', 'Пятница')
+user_markup_days.row('Вторник', 'Пятница')
 user_markup_days.row('Среда', 'Суббота')
 user_markup_days.row('Вернуться назад')
