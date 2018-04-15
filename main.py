@@ -7,6 +7,7 @@
 from datetime import date
 from _datetime import datetime
 
+
 import telebot
 import calendar
 import constants
@@ -38,7 +39,7 @@ def handle_text(message):
 
     elif message.text == "Расписание на завтра":
         my_date = date.today()
-        answer = calendar.day_name[my_date.weekday()+1]
+        answer = calendar.day_name[(my_date.weekday()+1)%7]
         bot.send_message(message.chat.id,answer, reply_markup=constants.user_markup_start)
         log(message,answer)
 
