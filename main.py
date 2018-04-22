@@ -55,13 +55,16 @@ def handle_text(message):
 
     elif message.text == "Какая неделя":
         import datetime
-        week = datetime.datetime.utcnow().isocalendar()[1]
+        week = datetime.datetime.now().isocalendar()[1]
+
         answer = ""
         if (week%2)==0:
             answer = "Четная"
         else:
             answer = "Нечетная"
+
         bot.send_message(message.from_user.id, answer, reply_markup=constants.user_markup_start)
+
 
     if message.text == "Понедельник" or (answer == "Monday"):
         request = "select * from Monday"
