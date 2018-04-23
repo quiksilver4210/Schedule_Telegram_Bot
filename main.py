@@ -12,7 +12,8 @@ import calendar
 import constants
 import sqlite3
 
-
+test = "Сущенко"
+print(test.split("/")[0])
 
 bot = telebot.TeleBot(constants.token)
 
@@ -56,7 +57,6 @@ def handle_text(message):
     elif message.text == "Какая неделя":
         import datetime
         week = datetime.datetime.now().isocalendar()[1]
-
         answer = ""
         if (week%2)==0:
             answer = "Четная"

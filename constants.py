@@ -24,19 +24,26 @@ user_markup_days.row('Вернуться назад')
 
 
 def fromSQL(request):
+    import datetime
+    week = datetime.datetime.now().isocalendar()[1]
+    if (week % 2) == 0:
+        position = 1
+    else:
+        position = 0
     answer =""
     conn = sqlite3.connect('schedule.sqlite')
     c = conn.cursor()
     c.execute(request)
     row = c.fetchone()
     while row is not None:
+
         answer = answer + ("------------------------------------------------\n"
                            + str(row[0]) + " ПАРА \n"
                            + "\n"
-                           + "Предмет: " + str(row[1])
+                           + "Предмет: " + str(row[1]).split("/")[position]
                            + "\n"
-                           + "Преподаватель: " + str(row[2])
-                           + "\n" + "Аудитория: " + str(row[3])
+                           + "Преподаватель: " + str(row[2]).split("/")[position]
+                           + "\n" + "Аудитория: " + str(row[3]).split("/")[position]
                            + "\n" + "------------------------------------------------\n")
         row = c.fetchone()
     return answer
