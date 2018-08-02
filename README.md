@@ -1,2 +1,2 @@
 # Schedule_Telegram_Bot
-# Schedule_Telegram_Bot
+Телеграмм-бот позволяющий узнать расписание группы Б8103а (2018г.)
